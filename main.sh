@@ -14,6 +14,7 @@ export HOMEBREW_NO_ANALYTICS="1"
 export HOMEBREW_NO_ENV_HINTS="1"
 export NEXT_TELEMETRY_DISABLED="1"
 export REDWOOD_DISABLE_TELEMETRY="1"
+export STORYBOOK_DISABLE_TELEMETRY="1"
 
 # customize the prompt
 source ~/.prompt/git-prompt.sh
