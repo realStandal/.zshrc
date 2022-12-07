@@ -40,3 +40,7 @@ cd ~/Software/
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Initalize the SSH Agent
+ssh-agent
+ssh-add
