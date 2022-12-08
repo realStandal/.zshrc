@@ -44,3 +44,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Initalize the SSH Agent
 ssh-agent
 ssh-add
+
+
+# Clear output from initalization
+clear
