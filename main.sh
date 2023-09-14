@@ -1,15 +1,14 @@
 # Load colors
 autoload -U colors && colors
 export C_CLEAR="$reset_color"
-export C_GRAY="%F{250}"
-export C_DARKGRAY="%F{237}"
+export C_GRAY="%F{255}"
+export C_DARKGRAY="%F{245}"
 export C_GREEN="%F{072}"
 export C_LBLUE="%F{105}"
 export C_RED="%F{124}"
 
 # Configuration
 export EDITOR="nano"
-export HERA_SECRET_TOKEN="secret"
 export HOMEBREW_NO_ANALYTICS="1"
 export HOMEBREW_NO_ENV_HINTS="1"
 export NEXT_TELEMETRY_DISABLED="1"
@@ -17,34 +16,23 @@ export REDWOOD_DISABLE_TELEMETRY="1"
 export STORYBOOK_DISABLE_TELEMETRY="1"
 
 # customize the prompt
-source ~/.prompt/git-prompt.sh
-precmd () { __git_ps1 "$C_GRAY%1d [$C_GREEN$(docker context show)$C_GRAY] " "$C_DARKGRAY» $reset_color" }
+source ~/.terminal/prompt.sh
 
-# zsh plugins
-source ~/.antigen.zsh
-antigen bundle lukechilds/zsh-nvm
-antigen apply
-
-# initialize rustup tooling
+# rustup
 source "$HOME/.cargo/env"
 
-# initialize Homebrew
+# Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Open the software directory
-cd ~/Software/
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# bun completions
-[ -s "/Users/ryan/.bun/_bun" ] && source "/Users/ryan/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Initalize the SSH Agent
+# start SSH Agent
 ssh-agent
 ssh-add
 
-
-# Clear output from initalization
+#
+cd ~/Software/
 clear

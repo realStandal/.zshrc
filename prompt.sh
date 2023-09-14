@@ -109,7 +109,7 @@ export GIT_PS1_STATESEPARATOR=""
 # Colors
 autoload -U colors && colors
 export C_CLEAR="$reset_color"
-export C_GRAY="%F{246}"
+export C_GRAY="%F{250}"
 export C_GREEN="%F{072}"
 export C_LBLUE="%F{105}"
 export C_RED="%F{124}"
@@ -583,3 +583,5 @@ __git_ps1 ()
 
 	return $exit
 }
+
+precmd () { __git_ps1 "$C_GRAY%1d [$C_GREEN$(docker context show)$C_GRAY] " "$C_DARKGRAY» $reset_color" }
