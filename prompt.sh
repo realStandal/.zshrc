@@ -100,20 +100,6 @@
 # GIT_PS1_HIDE_IF_PWD_IGNORED to a nonempty value. Override this on the
 # repository level by setting bash.hideIfPwdIgnored to "false".
 
-# Configuration
-export GIT_PS1_SHOWCOLORHINTS="true"
-export GIT_PS1_SHOWDIRTYSTATE="true"
-export GIT_PS1_SHOWUNTRACKEDFILES=""
-export GIT_PS1_STATESEPARATOR=""
-
-# Colors
-autoload -U colors && colors
-export C_CLEAR="$reset_color"
-export C_GRAY="%F{250}"
-export C_GREEN="%F{072}"
-export C_LBLUE="%F{105}"
-export C_RED="%F{124}"
-
 # check whether printf supports -v
 __git_printf_supports_v=
 printf -v __git_printf_supports_v -- '%s' yes >/dev/null 2>&1
@@ -583,5 +569,3 @@ __git_ps1 ()
 
 	return $exit
 }
-
-precmd () { __git_ps1 "$C_GRAY%1d [$C_GREEN$(docker context show)$C_GRAY] " "$C_DARKGRAY» $reset_color" }
